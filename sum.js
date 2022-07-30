@@ -1,4 +1,4 @@
-let sum = (num) => {
+let sum_1 = (num) => {
     // 1 + 2 + 3 +..... + n
     let result = 0;
     for(let i = 1; i <= num; i++){
@@ -8,4 +8,5 @@ let sum = (num) => {
     return result;
 };
 
-sum(100);
+
+sum_1(100);
