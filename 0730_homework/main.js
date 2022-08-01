@@ -27,10 +27,12 @@ let obj = {
     'price': 300
 }
 
-// console.log(func.filter(arr_1));
-
+console.log(func.filter(arr_1, (item) => { return item.price>=100 }));
+// console.log(arr_1.filter((item) => { return item.price>=100 }));
 // console.log(func.concat(arr_1,'abbbb', arr_2, obj, [[1,[2,3]]]));
 
-// console.log(func.find(arr_1));
-// console.log(arr_1.find((i)=>i.price>=100));
+// console.log(func.find(arr_1, (item) => { return item.price>=100 }));
+
+// console.log(func.findIndex([], (item) => { return item.price>200 }));
+// console.log([].findIndex((i)=>{return true}));
 
