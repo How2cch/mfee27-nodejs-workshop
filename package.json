@@ -1,0 +1,23 @@
+{
+  "name": "mfee27-nodejs-workshop",
+  "version": "1.0.0",
+  "description": "nodejs practice",
+  "main": "",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/How2cch/mfee27-nodejs-workshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/How2cch/mfee27-nodejs-workshop/issues"
+  },
+  "homepage": "https://github.com/How2cch/mfee27-nodejs-workshop#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

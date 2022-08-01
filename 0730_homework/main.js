@@ -1,0 +1,36 @@
+import * as func from './function.js';
+
+
+let arr_1 = [
+    {
+        'id': 1,
+        'type': 'a',
+        'price': 100
+    },
+    {
+        'id': 2,
+        'type': 'b',
+        'price': 100
+    },
+    {
+        'id': 3,
+        'type': 'a',
+        'price': 200
+    }
+];
+
+let arr_2 = ['1', '2', 3];
+
+let obj = {
+    'id': 4,
+    'type': 'b',
+    'price': 300
+}
+
+// console.log(func.filter(arr_1));
+
+// console.log(func.concat(arr_1,'abbbb', arr_2, obj, [[1,[2,3]]]));
+
+// console.log(func.find(arr_1));
+// console.log(arr_1.find((i)=>i.price>=100));
+
