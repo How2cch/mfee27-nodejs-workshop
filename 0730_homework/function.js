@@ -105,6 +105,7 @@ function reduce(arr, callback, initialValue) {
         return accumulator;
     }
 }
+// ===== reduce end =====
 
 
 function error(text) {
