@@ -58,5 +58,3 @@ let obj = {
 // ? 原 reduce 陣列方法
 
 
-// console.log(arr_1);
-
