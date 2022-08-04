@@ -162,6 +162,8 @@ function splice(arr, start, deleteCount, ...addItems) {
         arr[index] = finalArr[index];
     }
 
+    arr.length = finalLength;
+    
     return items_delete;
 }
 // ===== splice end =====

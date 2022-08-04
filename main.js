@@ -27,7 +27,7 @@ let obj = {
     'price': 300
 }
 
-let arr_old_Splice = [
+let arr_1_splice = [
     {
         'id': 1,
         'type': 'a',
@@ -45,7 +45,7 @@ let arr_old_Splice = [
     }
 ];
 
-let arr_new_Splice = [
+let arr_2_splice = [
     {
         'id': 1,
         'type': 'a',
@@ -94,18 +94,15 @@ let arr_new_Splice = [
 // ? 原 reduce 陣列方法
 
 console.log('======= 這是實作 splice 方法 ======');
-console.log('原始陣列：', arr_new_Splice);
-func.splice(arr_new_Splice, -1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]])
-console.log('改動後陣列：', arr_new_Splice);
-console.log('return ', func.splice(arr_new_Splice, -1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]]));
+console.log('原始陣列：', arr_1_splice);
+console.log('return ', func.splice(arr_1_splice, 1, 1, { id:'測試 id', type:'測試 type', price:'測試 price'}, 321, [1, [2, 3]]));
+console.log('改動後陣列：', arr_1_splice);
 
 console.log('----------------------------------------------');
 
 console.log('======= 這是原 splice 方法 ======');
-console.log('原始陣列：', arr_old_Splice);
-arr_old_Splice.splice(-1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]])
-console.log('改動後陣列：', arr_old_Splice);
-console.log('return ', arr_old_Splice.splice(-1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]]));
+console.log('原始陣列：', arr_2_splice);
+console.log('return ', arr_2_splice.splice(1, 1, { id:'測試 id', type:'測試 type', price:'測試 price'}, 321, [1, [2, 3]]));
+console.log('改動後陣列：', arr_2_splice);
 // ? 原 splice 陣列方法
-
 

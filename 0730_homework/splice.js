@@ -52,6 +52,8 @@ function splice(arr, start, deleteCount, ...addItems) {
         arr[index] = finalArr[index];
     }
 
+    arr.length = finalLength;
+
     return items_delete;
 }
 // ===== splice end =====
@@ -102,15 +104,13 @@ let arr_2_splice = [
 
 console.log('======= 這是實作 splice 方法 ======');
 console.log('原始陣列：', arr_1_splice);
-splice(arr_1_splice, -1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]])
+console.log('return ', splice(arr_1_splice, 1, 1, { id:'測試 id', type:'測試 type', price:'測試 price'}, 321, [1, [2, 3]]));
 console.log('改動後陣列：', arr_1_splice);
-console.log('return ', splice(arr_1_splice, -1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]]));
 
 console.log('----------------------------------------------');
 
 console.log('======= 這是原 splice 方法 ======');
 console.log('原始陣列：', arr_2_splice);
-arr_2_splice.splice(-1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]])
+console.log('return ', arr_2_splice.splice(1, 1, { id:'測試 id', type:'測試 type', price:'測試 price'}, 321, [1, [2, 3]]));
 console.log('改動後陣列：', arr_2_splice);
-console.log('return ', arr_2_splice.splice(-1, 0, { id:'測試 id', type:'測試 type', price:'測試 price'}, 0, [1, 2, [321, 99]]));
 // ? 原 splice 陣列方法
