@@ -25,6 +25,7 @@ doWork('刷牙', 3000, function (err, data) {
             if (err) {
                 console.error('發生錯誤了', err);
             } else {
+                console.log('執行成功:', data);
                 doWork('寫功課', 3000, function (err, data) {
                     if (err) {
                         console.error('發生錯誤了', err);
@@ -32,7 +33,6 @@ doWork('刷牙', 3000, function (err, data) {
                         console.log('執行成功:', data);
                     }
                 });
-                console.log('執行成功:', data);
             }
         });
     }
