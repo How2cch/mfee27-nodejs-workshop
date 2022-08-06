@@ -18,7 +18,11 @@ let readFile = (file, encoding) => {
 
 
 async function greeting() {
-    console.log(await readFile('greeting.txt', 'utf-8'));
+    try {
+        console.log(await readFile('greeting.txt', 'utf-8'));
+    } catch(error) {
+        console.log(error);
+    }
 }
 
 greeting();
