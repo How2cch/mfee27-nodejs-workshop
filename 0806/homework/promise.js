@@ -8,11 +8,10 @@ let readFile = (file, encoding) => {
     return new Promise((resolve, reject) => {
         fs.readFile(file, encoding, (err, data) => {
             if (err) {
-              reject(err);
-              return
+                return reject(err);
             }
-            resolve(data);
-          });
+            return resolve(data);
+        });
     })
 } 
 
