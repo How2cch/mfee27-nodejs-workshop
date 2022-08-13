@@ -1,13 +1,13 @@
-// {
-//   "env": {
-//     "browser": true,
-//     "es2021": true,
-//     "node": true
-//   },
-//   "parserOptions": {
-//     "ecmaVersion": "latest"
-//   },
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
 
-//   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-//   "rules": {}
-// }
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "rules": {}
+}
