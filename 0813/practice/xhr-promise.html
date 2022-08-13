@@ -38,23 +38,21 @@
         var responseDom = document.getElementById('response');
 
         var asyncBtn = document.getElementById('asyncBtn');
-        asyncBtn.addEventListener('click', function () {
+        asyncBtn.addEventListener('click', async function () {
             responseDom.innerText = '開始「非」同步請求';
             // TODO: 實作非同步請求
-            (async () => {
-                try {
-                    let data = await xhrPromise('GET', 'http://54.71.133.152:3000');
-                    console.log(`data`, data);
-                    if (data.status == 200) {
-                        responseDom.innerText = `非同步請求回覆成功了 ${data.responseText}`;
-                    } else {
-                        responseDom.innerText = `失敗內，狀態碼 ${data.status}`;
-                    }
-                } catch (error) {
-                    responseDom.innerText = error.message;
-                    console.log(`error`, error.status);
+            try {
+                let data = await xhrPromise('GET', 'http://54.71.133.152:3000/error');
+                console.log(`data`, data);
+                if (data.status == 200) {
+                    responseDom.innerText = `非同步請求回覆成功了 ${data.responseText}`;
+                } else {
+                    responseDom.innerText = `失敗內，狀態碼 ${data.status}`;
                 }
-            })();
+            } catch (error) {
+                responseDom.innerText = error.message;
+                console.log(`error`, error.status);
+            }
         });
 
         var count = document.getElementById('count');
