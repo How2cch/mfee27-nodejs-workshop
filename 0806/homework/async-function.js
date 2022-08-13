@@ -8,19 +8,18 @@ let readFile = (file, encoding) => {
     return new Promise((resolve, reject) => {
         fs.readFile(file, encoding, (err, data) => {
             if (err) {
-              reject(err);
-              return
+                reject(err);
+                return;
             }
             resolve(data);
-          });
-    })
-} 
-
+        });
+    });
+};
 
 async function greeting() {
     try {
         console.log(await readFile('greeting.txt', 'utf-8'));
-    } catch(error) {
+    } catch (error) {
         console.log(error);
     }
 }

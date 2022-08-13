@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>XHR</title>
+</head>
+
+<body>
+    <!-- <button id="syncBtn">同步</button> -->
+    <button id="asyncBtn">非同步</button>
+    <button id="countBtn">測試按鈕</button>
+    <div id="count">0</div>
+    <div id="response">message</div>
+
+    <script>
+        // test url: http://54.71.133.152:3000/
+        let date = new Date();
+
+        function xhrPromise(method, url) {
+            return new Promise((resolve, reject) => {
+                var xhr = new XMLHttpRequest();
+                xhr.addEventListener('load', function () {
+                    return resolve(xhr);
+                });
+                
+                xhr.onerror = function () {
+                    reject('xhr 非同步請求失敗')
+                };
+
+                xhr.open(method, url, true);
+                xhr.send();
+            });
+        }
+
+        var responseDom = document.getElementById('response');
+
+        var asyncBtn = document.getElementById('asyncBtn');
+        asyncBtn.addEventListener('click', function () {
+            responseDom.innerText = '開始「非」同步請求';
+            // TODO: 實作非同步請求
+            (async () => {
+                try {
+                    let data = await xhrPromise('GET', 'http://54.71.133.152:3000');
+                    console.log(`data`, data);
+                    if (data.status == 200) {
+                        responseDom.innerText = `非同步請求回覆成功了 ${data.responseText}`;
+                    } else {
+                        responseDom.innerText = `失敗內，狀態碼 ${data.status}`;
+                    }
+                } catch (error) {
+                    responseDom.innerText = error;
+                }
+            })();
+        });
+
+        var count = document.getElementById('count');
+        var countBtn = document.getElementById('countBtn');
+        countBtn.addEventListener('click', function () {
+            count.innerText = parseInt(count.innerText, 10) + 1;
+        });
+    </script>
+</body>
+
+</html>

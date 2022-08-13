@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/How2cch/mfee27-nodejs-workshop#readme",
   "dependencies": {
+    
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
     "nodemon": "^2.0.19"
   }
 }

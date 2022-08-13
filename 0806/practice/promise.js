@@ -1,4 +1,3 @@
-
 let dt = new Date();
 console.log(`開始工作 at ${dt.toISOString()}`);
 
@@ -13,22 +12,23 @@ function doWork2(job, timer) {
             } else {
                 resolve(`完成工作 ${job} at ${dt.toISOString()}`);
             }
-
         }, timer);
     });
-};
+}
 
 doWork2('刷牙', 3000)
     .then((data) => {
         console.log(data);
         return doWork2('吃早餐', 5000);
-    }).then((data) => {
+    })
+    .then((data) => {
         console.log(data);
         return doWork2('寫功課', 3000);
-    }).then((data) => {
+    })
+    .then((data) => {
         console.log(data);
         return doWork2();
-    }).catch((err) => {
+    })
+    .catch((err) => {
         console.log(err);
     });
-

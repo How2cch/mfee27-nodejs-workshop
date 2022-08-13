@@ -12,12 +12,13 @@ let readFile = (file, encoding) => {
             }
             return resolve(data);
         });
+    });
+};
+
+readFile('greeting.txt', 'utf-8')
+    .then((data) => {
+        console.log(data);
     })
-} 
-
-
-readFile('greeting.txt', 'utf-8').then((data) => {
-    console.log(data);
-}).catch((error) => {
-    console.error(error);
-})
+    .catch((error) => {
+        console.error(error);
+    });
