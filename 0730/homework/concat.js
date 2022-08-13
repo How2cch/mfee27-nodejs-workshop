@@ -16,10 +16,6 @@ function concat(...arr) {
 }
 // ====== concat end ======
 
-function error(text) {
-  throw new Error(text);
-}
-
 let arr_1 = [
   {
     id: 1,
