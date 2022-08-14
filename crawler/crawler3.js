@@ -20,10 +20,10 @@ let stockInfo = {};
 
     console.log(stockInfo[item]);
     await wait(2000);
-  }
 
-  let fileInfo = JSON.stringify(stockInfo);
-  fs.writeFile('stockInfo.json', fileInfo);
+    let fileInfo = JSON.stringify(stockInfo);
+    fs.writeFile('stockInfo.json', fileInfo);
+  }
 })();
 
 // 延遲請求用

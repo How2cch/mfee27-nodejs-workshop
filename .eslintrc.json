@@ -9,5 +9,9 @@
   },
 
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-  "rules": {}
+  "rules": {},
+
+  "parserOptions": {
+    "sourceType": "module"
+}
 }
