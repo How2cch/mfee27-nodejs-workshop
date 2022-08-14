@@ -1,9 +1,9 @@
 const { default: axios } = require('axios');
-// const moment = require('moment');
+const moment = require('moment');
 const fs = require('fs/promises');
 
 let stockArr = [];
-// let queryDate = moment().format('YYYYMMDD');
+let queryDate = moment().format('YYYYMMDD');
 let stockInfo = {};
 
 (async () => {
@@ -12,7 +12,7 @@ let stockInfo = {};
 
   for (const item of stockArr) {
     try {
-      let response = await axios.get(`https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_${item}.tw&json=1&delay=0`);
+      let response = await axios.get(`https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=${queryDate}&stockNo=${item}`);
       stockInfo[item] = response.data;
     } catch (e) {
       console.error(e);
