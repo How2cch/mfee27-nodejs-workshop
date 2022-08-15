@@ -10,13 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
-<<<<<<< HEAD
-    "moment": "^2.29.4",
-    "yosay": "^2.0.2"
-=======
     "dotenv": "^16.0.1",
     "moment": "^2.29.4",
     "mysql2": "^2.3.3"
->>>>>>> fc3a3df (拜託不要再偷看我密碼ㄌ)
   }
 }
