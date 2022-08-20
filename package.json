@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/How2cch/mfee27-nodejs-workshop#readme",
   "dependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "moment": "^2.29.4",
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
