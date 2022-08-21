@@ -4,7 +4,13 @@ require('dotenv').config();
 const mysql = require('mysql2');
 const cors = require('cors');
 
-app.use(cors());
+const corsConfig = {
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsConfig));
 
 const port = process.env.SERVER_PORT;
 const pool = mysql
