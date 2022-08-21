@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "nodejs practice",
   "main": "",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,9 +17,7 @@
   },
   "homepage": "https://github.com/How2cch/mfee27-nodejs-workshop#readme",
   "dependencies": {
-    "dotenv": "^16.0.1",
-    "moment": "^2.29.4",
-    "mysql2": "^2.3.3"
+    "dotenv": "^16.0.1"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
