@@ -5,13 +5,9 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": "latest"
-  },
-
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-  "rules": {},
-
-  "parserOptions": {
+    "ecmaVersion": "latest",
     "sourceType": "module"
-}
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "rules": {}
 }
