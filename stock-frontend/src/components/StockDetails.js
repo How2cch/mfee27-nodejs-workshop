@@ -15,9 +15,6 @@ const StockDetails = (props) => {
   useEffect(() => {
     (async () => {
       let result = await axios.get(`http://localhost:3001/api/1.0/stock-prices/${stockId}`);
-      for (const item of result.data) {
-        item.date = moment(item.date).format('YYYY-MM-DD');
-      }
       setDataRaw(result.data);
     })();
   }, []);

@@ -22,6 +22,8 @@ const pool = mysql
     database: process.env.DB_NAME,
     // ? 限制 pool 連線上限
     connectionLimit: 10,
+    // ? date 不要轉成 date Object
+    dateStrings: true,
   })
   .promise();
 
