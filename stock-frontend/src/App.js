@@ -7,7 +7,7 @@ import Register from './components/Register';
 import StockDetails from './components/StockDetails';
 import NotFound from './components/NotFound';
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <Navbar />

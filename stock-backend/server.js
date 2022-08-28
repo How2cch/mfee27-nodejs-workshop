@@ -63,6 +63,11 @@ app.get('/api/1.0/stock', async (req, res) => {
   res.json(result);
 });
 
+app.get('/api/1.0/stock-prices/:stockno', async (req, res) => {
+  let [result] = await pool.execute('SELECT * FROM stock_prices WHERE stock_id=?', [req.params.stockno]);
+  res.json(result);
+});
+
 app.use((req, res) => {
   console.log('這個頁面找不到');
   res.status(404).send('Not Found 啦');
