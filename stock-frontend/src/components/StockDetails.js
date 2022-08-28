@@ -11,8 +11,6 @@ const StockDetails = (props) => {
   const [data, setData] = useState(null);
 
   let { stockId } = useParams();
-  const [calendarSelect, setCalendarSelect] = useState(null);
-  const calendarRef = useRef(null);
 
   useEffect(() => {
     (async () => {
