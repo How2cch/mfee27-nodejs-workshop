@@ -4,26 +4,40 @@ import { API_URL } from '../utils/config';
 
 const Register = () => {
   const [user, setUser] = useState({
-    email: '',
-    name: '',
-    password: '',
-    confirmPassword: '',
+    email: 'howardchen1617@gmail.com',
+    name: '陳家豪',
+    password: 'aaaaaaaa',
+    confirmPassword: 'aaaaaaaa',
   });
 
   const handleEdit = (e) => {
-    let newData = { ...user };
-    newData[e.target.name] = e.target.value;
-    setUser(newData);
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleUpload = (e) => {
+    setUser({ ...user, photo: e.target.files[0] });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let response = await axios.post(`${API_URL}/auth/register`, user);
+      let formData = new FormData();
+      for (const key in user) {
+        formData.append(key, user[key]);
+      }
+      // let formData = new FormData();
+      // formData.append('email', user.email);
+      // formData.append('name', user.name);
+      // formData.append('password', user.password);
+      // formData.append('confirmPassword', user.confirmPassword);
+      // formData.append('photo', user.photo);
+      let response = await axios.post(`${API_URL}/auth/register`, formData);
       console.log(response.data);
+      // if (response.data.status === 'ok') alert(response.data.message);
     } catch (err) {
       console.error('register', err);
-      console.log(err.response.data.message);
+      // if (err.response.data.error) return alert('資料欄位錯誤');
+      // alert(err.response.data.message);
     }
   };
   return (
@@ -44,9 +58,8 @@ const Register = () => {
           id="email"
           name="email"
           value={user.email}
-          onChange={(e) => {
-            handleEdit(e);
-          }}
+          onChange={handleEdit}
+          required
         />
       </div>
       <div className="mb-4 text-2xl">
@@ -59,9 +72,8 @@ const Register = () => {
           id="name"
           name="name"
           value={user.name}
-          onChange={(e) => {
-            handleEdit(e);
-          }}
+          onChange={handleEdit}
+          required
         />
       </div>
       <div className="mb-4 text-2xl">
@@ -74,9 +86,8 @@ const Register = () => {
           id="password"
           name="password"
           value={user.password}
-          onChange={(e) => {
-            handleEdit(e);
-          }}
+          onChange={handleEdit}
+          required
         />
       </div>
       <div className="mb-8 text-2xl">
@@ -89,16 +100,23 @@ const Register = () => {
           id="confirmPassword"
           name="confirmPassword"
           value={user.confirmPassword}
-          onChange={(e) => {
-            handleEdit(e);
-          }}
+          onChange={handleEdit}
+          required
         />
       </div>
       <div className="mb-8 text-2xl">
         <label htmlFor="photo" className="flex mb-2 w-32">
           圖片
         </label>
-        <input className="w-full border-2 border-purple-200 rounded-md h-10 focus:outline-none focus:border-purple-400 px-2" type="file" id="photo" name="photo" />
+        <input
+          className="w-full border-2 border-purple-200 rounded-md h-10 focus:outline-none focus:border-purple-400 px-2"
+          type="file"
+          id="photo"
+          name="photo"
+          onChange={(e) => {
+            handleUpload(e);
+          }}
+        />
       </div>
       <button className="text-xl bg-indigo-300 px-4 py-2.5 rounded hover:bg-indigo-400 transition duration-200 ease-in">註冊</button>
     </form>

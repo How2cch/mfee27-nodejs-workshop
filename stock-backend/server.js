@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 require('dotenv').config();
 const cors = require('cors');
 
@@ -49,6 +50,8 @@ app.get('/about', (req, res) => {
 });
 
 app.use(express.json()); // ? 將 express 輸出格式轉為 JSON
+
+app.use(express.static(path.join(__dirname, 'public'))); // ? 設定可讀取靜態檔案的路徑
 
 // todo: API
 // ? 股票相關 API

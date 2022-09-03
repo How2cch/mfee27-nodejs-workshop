@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/How2cch/mfee27-nodejs-workshop#readme",
   "dependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
