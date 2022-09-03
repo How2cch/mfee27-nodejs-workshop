@@ -9,10 +9,9 @@ const Stock = () => {
 
   useEffect(() => {
     (async function () {
-      let response = await axios.get('http://localhost:3001/api/1.0/stock');
+      let response = await axios.get(`${API_URL}/stock`);
       setData(response.data);
     })();
-    console.log(API_URL());
   }, []);
 
   return (

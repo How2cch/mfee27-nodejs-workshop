@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { API_URL } from '../utils/config';
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -8,14 +10,20 @@ const Register = () => {
     confirmPassword: '',
   });
 
-  const handleEdit = ({ target }) => {
+  const handleEdit = (e) => {
     let newData = { ...user };
-    newData[target.name] = target.value;
+    newData[e.target.name] = e.target.value;
     setUser(newData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      let response = await axios.post(`${API_URL}/auth/register`, user);
+      console.log(response.data);
+    } catch (err) {
+      console.error('register', err);
+    }
   };
   return (
     <form
