@@ -18,14 +18,14 @@ router.get('/:stockno', async (req, res) => {
     return;
   }
   let [total] = await pool.execute('SELECT COUNT(*) AS total FROM stock_prices WHERE stock_id=?', [req.params.stockno]);
-  let currentPage = req.query.page || 1;
+  let currentPage = Number(req.query.page) || 1;
   const perPage = 5;
   total = total[0].total;
   const offset = perPage * (currentPage - 1);
   const lastPage = Math.ceil(total / perPage);
   let [data] = await pool.execute('SELECT * FROM stock_prices WHERE stock_id=? ORDER BY date LIMIT ?  OFFSET ?', [req.params.stockno, perPage, offset]);
 
-  res.json({ total, perPage, currentPage, lastPage, data });
+  res.json({ pagination: { total, perPage, currentPage, lastPage }, data });
 });
 
 module.exports = router;

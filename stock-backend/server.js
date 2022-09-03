@@ -6,7 +6,7 @@ const cors = require('cors');
 const port = process.env.SERVER_PORT || 3001; // ? 給定一個預設的 port
 
 const corsConfig = {
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'http://localhost:3002'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -48,9 +48,16 @@ app.get('/about', (req, res) => {
   res.send('About page');
 });
 
+app.use(express.json()); // ? 將 express 輸出格式轉為 JSON
+
 // todo: API
+// ? 股票相關 API
 const stockAPI = require('./routers/stock');
 app.use('/api/1.0/stock', stockAPI);
+
+// ? 註冊登入相關 API
+const authAPI = require('./routers/auth');
+app.use('/api/1.0/auth', authAPI);
 
 // todo: 404 Not Found
 app.use((req, res) => {
