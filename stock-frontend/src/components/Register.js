@@ -23,6 +23,7 @@ const Register = () => {
       console.log(response.data);
     } catch (err) {
       console.error('register', err);
+      console.log(err.response.data.message);
     }
   };
   return (
