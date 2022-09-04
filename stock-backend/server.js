@@ -6,6 +6,23 @@ const cors = require('cors');
 
 const port = process.env.SERVER_PORT || 3001; // ? 給定一個預設的 port
 
+// todo: 啟用 session
+const expressSession = require('express-session');
+let FileStore = require('session-file-store')(expressSession);
+
+const fileStoreOptions = {
+  path: path.join(__dirname, '..', 'sessions'),
+};
+
+app.use(
+  expressSession({
+    store: new FileStore(fileStoreOptions),
+    secret: process.env.SESSION_SECRET,
+    resave: false, // ? 如果 session 沒有改變的話，要不要重新儲存一次？
+    saveUninitialized: false, // ? 還沒初始化的，要不要存
+  })
+);
+
 const corsConfig = {
   origin: ['http://localhost:3000', 'http://localhost:3002'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
