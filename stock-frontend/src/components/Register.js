@@ -25,12 +25,6 @@ const Register = () => {
       for (const key in user) {
         formData.append(key, user[key]);
       }
-      // let formData = new FormData();
-      // formData.append('email', user.email);
-      // formData.append('name', user.name);
-      // formData.append('password', user.password);
-      // formData.append('confirmPassword', user.confirmPassword);
-      // formData.append('photo', user.photo);
       let response = await axios.post(`${API_URL}/auth/register`, formData);
       console.log(response.data);
       // if (response.data.status === 'ok') alert(response.data.message);
